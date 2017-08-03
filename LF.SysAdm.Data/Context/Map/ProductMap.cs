@@ -1,11 +1,5 @@
 ﻿using LF.SysAdm.Data.Context.Map.Template;
 using LF.SysAdm.Domain.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
 
 namespace LF.SysAdm.Data.Context.Map
 {
@@ -82,8 +76,8 @@ namespace LF.SysAdm.Data.Context.Map
             HasRequired(x => x.Rel_Category)
                 .WithOptional().Map(x => x.MapKey("CategoryId"));
 
-            HasRequired(x => x.Rel_Supplyer)
-                .WithOptional().Map(x => x.MapKey("SupplyeId"));
+            HasRequired(x => x.Rel_Supply)
+                .WithOptional().Map(x => x.MapKey("SupplyId"));
         }
     }
 }

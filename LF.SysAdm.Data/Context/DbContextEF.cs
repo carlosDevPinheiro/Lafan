@@ -21,9 +21,9 @@ namespace LF.SysAdm.Data.Context
         public DbSet<Users> _dbSetUser { get; set; }
         public DbSet<Customer> _dbsetcustomer { get; set; }
         public DbSet<Address> _dbsetaddress { get; set; }
-        //public DbSet<Category> _dbSetCategory { get; set; }
-         public DbSet<Supply> _dbSetSupply { get; set; }
-        //public DbSet<Product> _dbSetProduct { get; set; }
+        public DbSet<Category> _dbSetCategory { get; set; }
+        public DbSet<Supply> _dbSetSupply { get; set; }
+        public DbSet<Product> _dbSetProduct { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -31,9 +31,9 @@ namespace LF.SysAdm.Data.Context
             modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new CustomerMap());
             modelBuilder.Configurations.Add(new AddressMap());
-            //modelBuilder.Configurations.Add(new CategoryMap());
+            modelBuilder.Configurations.Add(new CategoryMap());
             modelBuilder.Configurations.Add(new SupplyMap());
-            //modelBuilder.Configurations.Add(new ProductMap());
+            modelBuilder.Configurations.Add(new ProductMap());
         }
 
 

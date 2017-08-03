@@ -8,7 +8,7 @@ namespace LF.SysAdm.Domain.Entity
     {
         protected Product() { }
         public Product(
-            string name, string desc, DateTime? dtExp, int quant, decimal pric, string img, string batch, int invoi, Guid catId, Guid supplyId)
+            string name, string desc, DateTime? dtExp, int quant, decimal pric, string img, string batch, int invoi, Category cat, Supply supplyId)
         {
             Name = name;
             Description = desc;
@@ -21,8 +21,8 @@ namespace LF.SysAdm.Domain.Entity
             Image = img;
             Batch = batch;
             Invoice = invoi;
-            CategoryId = catId;
-            SupplyId = supplyId;
+            Rel_Category = cat;
+            Rel_Supply = supplyId;
             Register();
         }
 
@@ -39,10 +39,9 @@ namespace LF.SysAdm.Domain.Entity
         public string Batch { get; private set; }
         public int Invoice { get; private set; }
 
-        public Guid CategoryId { get; private set; }
-        public Category Rel_Category { get; private set; }
-        public Guid SupplyId { get; private set; }
-        public Supply Rel_Supplyer { get; private set; }
+        
+        public Category Rel_Category { get; private set; }       
+        public Supply Rel_Supply { get; private set; }
 
 
 
