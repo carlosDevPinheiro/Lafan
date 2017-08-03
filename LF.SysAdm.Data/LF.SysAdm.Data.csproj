@@ -55,7 +55,9 @@
     <Compile Include="Context\DbContextEF.cs" />
     <Compile Include="Context\IDbConnectionContext.cs" />
     <Compile Include="Context\Map\AddressMap.cs" />
+    <Compile Include="Context\Map\CategoryMap.cs" />
     <Compile Include="Context\Map\CustomerMap.cs" />
+    <Compile Include="Context\Map\ProductMap.cs" />
     <Compile Include="Context\Map\SupplyMap.cs" />
     <Compile Include="Context\Map\Template\LafanTemplateMap.cs" />
     <Compile Include="Context\Map\UserMap.cs" />

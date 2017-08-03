@@ -54,7 +54,9 @@
     <Compile Include="Command\User\RegisterUsersCommand.cs" />
     <Compile Include="Entity\Address.cs" />
     <Compile Include="Entity\Base\BaseEntity.cs" />
+    <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\Customer.cs" />
+    <Compile Include="Entity\Product.cs" />
     <Compile Include="Entity\Supply.cs" />
     <Compile Include="Entity\Users.cs" />
     <Compile Include="Enum\EProfile.cs" />
