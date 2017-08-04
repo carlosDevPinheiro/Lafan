@@ -19,31 +19,43 @@ namespace LF.SysAdm.Data.Repositorys.Dapper
 
         public void AddEntity(T entity)
         {
-            
-                var obj = typeof(T);
-                var tableName = obj.Name;
 
-                PropertyInfo[] props = entity.GetType().GetProperties();
-                List<string> propertys = new List<string>();
-                var param = new DynamicParameters();
+            var obj = typeof(T);
+            var tableName = obj.Name;
 
-                foreach (var p in props)
+            PropertyInfo[] props = entity.GetType().GetProperties();
+            List<string> propertys = new List<string>();
+            var param = new DynamicParameters();
+            string name = string.Empty;
+           
+           
+
+            foreach (var p in props)
+            {
+                if ((!p.Name.StartsWith("Rel_") && !p.Name.EndsWith("Id")) && p.PropertyType.Name != typeof(ICollection<>).Name)
                 {
-                    if (!p.Name.StartsWith("Rel_") && p.PropertyType.Name != typeof(ICollection<>).Name)
-                    {
-                        propertys.Add(p.Name);
-                        param.Add("@" + p.Name, p.GetValue(entity, null));
-                    }
+                    propertys.Add(p.Name);
+                    param.Add("@" + p.Name, p.GetValue(entity, null));
                 }
+                else if (p.Name.StartsWith("Rel_"))
+                {
+                    name = p.Name.Substring(4) + "Id";
+                    propertys.Add(name); 
+                }
+                else if(p.Name.EndsWith("Id"))
+                {
+                    param.Add("@" + p.Name, p.GetValue(entity, null));
+                }
+            }
 
-                var columns = propertys.ToArray();
+            var columns = propertys.ToArray();
 
-                var SqlCmd = string.Format("INSERT INTO [{0}] ([{1}]) VALUES (@{2})",
-                    tableName,
-                    string.Join("],[", columns),
-                    string.Join(",@", columns));
+            var SqlCmd = string.Format("INSERT INTO [{0}] ([{1}]) VALUES (@{2})",
+                tableName,
+                string.Join("],[", columns),
+                string.Join(",@", columns));
 
-                    DbContextDapper.Transaction.Connection.Execute(SqlCmd, param: param, transaction: DbContextDapper.Transaction);
+            DbContextDapper.Transaction.Connection.Execute(SqlCmd, param: param, transaction: DbContextDapper.Transaction);
 
         }
 
@@ -54,9 +66,9 @@ namespace LF.SysAdm.Data.Repositorys.Dapper
 
             string SqlCmd = $"DELETE FROM [{tableName}] WHERE [ID] = '{entity.ID}'";
 
-          
+
             DbContextDapper.Transaction.Connection.Execute(SqlCmd, transaction: DbContextDapper.Transaction);
-            
+
         }
 
         public void EditEntity(T entity)
@@ -100,12 +112,12 @@ namespace LF.SysAdm.Data.Repositorys.Dapper
 
             string SqlCmd = $"SELECT * FROM [dbo].[{tableName}] WHERE [ID] = '{Id}'";
 
-            
+
             var result = DbContextDapper.Transaction
                 .Connection.QueryFirstOrDefault<T>(SqlCmd, transaction: DbContextDapper.Transaction);
 
             return result;
         }
-        
+
     }
 }

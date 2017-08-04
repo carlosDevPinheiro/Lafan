@@ -51,7 +51,7 @@ namespace LF.SysAdm.TEST
             
 
             Customer _customer = new Customer($"{rdm.Next(100, 999)}56811892", DateTime.Now, "30526425", true, _user);           
-            Address _address = new Address("Rua testeAddress", 25, "TesteTesteAddress", "TesteTesteAddress", "TesteTestAddress", "TesteTesteAddress", "78005-210",_customer.ID);
+            Address _address = new Address("Rua testeAddress", 25, "TesteTesteAddress", "TesteTesteAddress", "TesteTestAddress", "TesteTesteAddress", "78005-210",_customer);
            // _customer.Rel_AdressList.Add(_address);
 
             _repositoryUsers.AddEntity(_user);

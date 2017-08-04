@@ -12,7 +12,7 @@ namespace LF.SysAdm.Data.Context
         public DbContextEF()
              :base(ConfigurationManager.ConnectionStrings["Lafan"].ConnectionString) 
         {
-            //Database.SetInitializer(new ContextInitialize());
+           // Database.SetInitializer(new ContextInitialize());
 
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
@@ -40,7 +40,35 @@ namespace LF.SysAdm.Data.Context
 
         public class ContextInitialize : DropCreateDatabaseIfModelChanges<DbContextEF>
         {
+            private readonly DbContextEF _context;
+            public ContextInitialize()
+            {
+                _context = new DbContextEF();
+                CreateViews(_context);
+            }
 
+            public void CreateViews(DbContextEF context)
+            {
+                _context.Database.ExecuteSqlCommand(LF_SupplyWithAddress);
+            }
+
+            private const string LF_SupplyWithAddress = "CREATE VIEW LF_SupplyWithAddress AS " +
+                "SELECT SUP.ID ," +
+                "SUP.[CompanyName] ," +
+                "SUP.[CNPJ] ," +
+                "SUP.[Phone] ," +
+                "SUP.[Agent] ," +
+                "SUP.[Email] ," +
+                "SUP.[DateRegister] ," +
+                "SUP.[DateOfChange] ," +
+                "SUP.[AddressId]," +
+                "ADR.[Street]," +
+                "ADR.[Number]," +
+                "ADR.[Complement]," +
+                "ADR.[District]," +
+                "ADR.[City],ADR.[State],ADR.[CEP]" +
+                " FROM [dbo].[Supply] AS SUP" +
+                " INNER JOIN [dbo].[Address] AS ADR ON SUP.[AddressId] = ADR.[ID]";
         }
 
         public static class LafanStoreProcedureCustomer

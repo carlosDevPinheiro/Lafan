@@ -21,7 +21,7 @@ namespace LF.SysAdm.Data.Repositorys.EF
             var supply = GetEntity(Id);
             return new SupplyQuery
             {
-                AddressId = supply.AddressId,
+                AddressId = supply.Rel_Address.ID,
                 Phone = supply.Phone,
                 Agent = supply.Agent,
                 CNPJ = supply.CNPJ,
@@ -59,7 +59,7 @@ namespace LF.SysAdm.Data.Repositorys.EF
             var list = GetAllEntity();
             return list.Select(x => new SupplyQuery
             {
-                AddressId = x.AddressId,
+                AddressId = x.Rel_Address.ID,
                 Phone = x.Phone,
                 Agent = x.Agent,
                 CNPJ = x.CNPJ,

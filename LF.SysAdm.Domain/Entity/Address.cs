@@ -10,7 +10,7 @@ namespace LF.SysAdm.Domain.Entity
         protected Address() { }
 
         public Address(
-            string street, int number, string compl, string dist, string city, string state, string cep, Guid? customerId)
+            string street, int number, string compl, string dist, string city, string state, string cep, Customer cust = null)
         {
             this.Street = Helpers.Capitalize(street);
             this.Number = number;
@@ -20,7 +20,7 @@ namespace LF.SysAdm.Domain.Entity
             this.State = Helpers.Capitalize(state);
             this.CEP = cep;
             this.DateRegister = DateTime.Now;
-            this.CustomerId = customerId;
+            this.Rel_Customer = cust;
             this.Register();
         }
 

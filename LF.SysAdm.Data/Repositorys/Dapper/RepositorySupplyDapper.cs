@@ -23,7 +23,7 @@ namespace LF.SysAdm.Data.Repositorys.Dapper
             var Supply = GetEntity(Id);
             return new SupplyQuery
             {
-                AddressId = Supply.AddressId,
+                AddressId = Supply.Rel_Address.ID,
                 Agent = Supply.Agent,
                 CNPJ = Supply.Agent,
                 CompanyName = Supply.CompanyName,
@@ -47,7 +47,7 @@ namespace LF.SysAdm.Data.Repositorys.Dapper
             var list = GetAllEntity();
             return list.Select(x => new SupplyQuery
             {
-                AddressId = x.AddressId,
+                AddressId = x.Rel_Address.ID,
                 Phone = x.Phone,
                 Agent = x.Agent,
                 CNPJ = x.CNPJ,

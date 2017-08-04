@@ -55,6 +55,7 @@ namespace LF.SysAdm.Data.Context.Map
             HasMany(x => x.Rel_AdressList)
                 .WithOptional(x => x.Rel_Customer)
                 .HasForeignKey(x => x.CustomerId)
+                //.Map(x => x.MapKey("CustomerId"))                
                 .WillCascadeOnDelete(true);
 
             HasRequired(x => x.Rel_User)

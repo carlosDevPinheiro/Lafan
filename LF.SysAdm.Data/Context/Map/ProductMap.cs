@@ -59,6 +59,9 @@ namespace LF.SysAdm.Data.Context.Map
             Property(x => x.Active)
               .HasColumnName("Active")
               .IsRequired();
+
+            Ignore(x => x.CategoryId);
+            Ignore(x => x.SupplyId);
         }
 
         protected override void ConfigNameTable()

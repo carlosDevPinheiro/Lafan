@@ -81,16 +81,28 @@
     <Compile Include="Migrations\201708032300010_tableProdCat.Designer.cs">
       <DependentUpon>201708032300010_tableProdCat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708041706480_alterCustomerAdress.cs" />
+    <Compile Include="Migrations\201708041706480_alterCustomerAdress.Designer.cs">
+      <DependentUpon>201708041706480_alterCustomerAdress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708041812546_alterCustomerAdress2.cs" />
+    <Compile Include="Migrations\201708041812546_alterCustomerAdress2.Designer.cs">
+      <DependentUpon>201708041812546_alterCustomerAdress2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorys\Dapper\CRUDDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositoryAddressDapper.cs" />
+    <Compile Include="Repositorys\Dapper\RepositoryCategoryDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositoryCustomerDapper.cs" />
+    <Compile Include="Repositorys\Dapper\RepositoryProductDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositorySupplyDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositoryUserDapper.cs" />
     <Compile Include="Repositorys\EF\CRUDEF.cs" />
     <Compile Include="Repositorys\EF\RepositoryAddressEF.cs" />
+    <Compile Include="Repositorys\EF\RepositoryCategoryEF.cs" />
     <Compile Include="Repositorys\EF\RepositoryCustomerEF.cs" />
+    <Compile Include="Repositorys\EF\RepositoryProductEF.cs" />
     <Compile Include="Repositorys\EF\RepositorySupplyEF.cs" />
     <Compile Include="Repositorys\EF\RepositoryUserEF.cs" />
     <Compile Include="UOW\UnityOfWorkDapper.cs" />
@@ -126,6 +138,17 @@
     <EmbeddedResource Include="Migrations\201708032300010_tableProdCat.resx">
       <DependentUpon>201708032300010_tableProdCat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708041706480_alterCustomerAdress.resx">
+      <DependentUpon>201708041706480_alterCustomerAdress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708041812546_alterCustomerAdress2.resx">
+      <DependentUpon>201708041812546_alterCustomerAdress2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="T-SQL\LF_GetProduct.sql" />
+    <Content Include="T-SQL\LF_SupplyWithAddress.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -65,7 +65,7 @@ namespace LF.SysAdm.Data.Context.Map
 
         protected override void ConfigRelationship()
         {
-           // HasRequired(x => x.Rel_Supply).
+            
         }
 
 

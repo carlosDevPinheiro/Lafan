@@ -75,7 +75,7 @@ namespace LF.SysAdm.Business
                 return new ObjectRequest()
                     .CreateObjectRequest($"Endereço nao foi adicionado, Cliente não Registrado no Sistema", false);
 
-            var address = new Address(cmd.Street, cmd.Number, cmd.Complement, cmd.District, cmd.City, cmd.State, cmd.CEP, cmd.CustomerId);
+            var address = new Address(cmd.Street, cmd.Number, cmd.Complement, cmd.District, cmd.City, cmd.State, cmd.CEP);
 
             _repAddress.AddEntity(address);
 
@@ -92,7 +92,7 @@ namespace LF.SysAdm.Business
                 return new ObjectRequest().CreateObjectRequest($"Usuario nao encontrado", false);
 
             Customer _customer = new Customer(cmd.Document, cmd.DateBirthday, cmd.Phone, cmd.Gender, user);
-            Address _address = new Address(cmd.Street, cmd.Number, cmd.Complement, cmd.District, cmd.City, cmd.State, cmd.CEP, _customer.ID);
+            Address _address = new Address(cmd.Street, cmd.Number, cmd.Complement, cmd.District, cmd.City, cmd.State, cmd.CEP, _customer);
 
             _repCustomer.AddEntity(_customer);
             _repAddress.AddEntity(_address);

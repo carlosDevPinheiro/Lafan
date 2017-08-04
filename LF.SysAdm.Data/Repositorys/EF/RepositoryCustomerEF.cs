@@ -49,7 +49,7 @@ namespace LF.SysAdm.Data.Repositorys.EF
         public CustomerWithAddressQuery GetCustomerWithAddress(Guid Id)
         {
             return (from c in _context.Set<Customer>()
-                    join a in _context.Set<Address>() on c.ID equals a.CustomerId
+                    join a in _context.Set<Address>() on c.ID equals a.Rel_Customer.ID
                     select new CustomerWithAddressQuery
                     {
                         CustomerId = c.ID,
