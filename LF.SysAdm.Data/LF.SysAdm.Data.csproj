@@ -58,6 +58,7 @@
     <Compile Include="Context\Map\CategoryMap.cs" />
     <Compile Include="Context\Map\CustomerMap.cs" />
     <Compile Include="Context\Map\ProductMap.cs" />
+    <Compile Include="Context\Map\SeriviceProvideMap.cs" />
     <Compile Include="Context\Map\SupplyMap.cs" />
     <Compile Include="Context\Map\Template\LafanTemplateMap.cs" />
     <Compile Include="Context\Map\UserMap.cs" />

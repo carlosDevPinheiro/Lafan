@@ -26,26 +26,20 @@ namespace LF.SysAdm.Data.Repositorys.Dapper
             PropertyInfo[] props = entity.GetType().GetProperties();
             List<string> propertys = new List<string>();
             var param = new DynamicParameters();
-            string name = string.Empty;
-           
-           
+          
 
             foreach (var p in props)
-            {
-                if ((!p.Name.StartsWith("Rel_") && !p.Name.EndsWith("Id")) && p.PropertyType.Name != typeof(ICollection<>).Name)
+            {       // se nao BaseEntity e Nao Terminar com "Id"  e nao for ICollection
+                if (p.PropertyType.BaseType != typeof(BaseEntity) && !p.Name.EndsWith("Id") && p.PropertyType.Name != typeof(ICollection<>).Name)
                 {
                     propertys.Add(p.Name);
                     param.Add("@" + p.Name, p.GetValue(entity, null));
-                }
-                else if (p.Name.StartsWith("Rel_"))
-                {
-                    name = p.Name.Substring(4) + "Id";
-                    propertys.Add(name); 
-                }
-                else if(p.Name.EndsWith("Id"))
-                {
+                }                
+                else if (p.PropertyType.BaseType == typeof(BaseEntity))
+                    propertys.Add(p.Name.Substring(4) + "Id");
+                
+                else if (p.Name.EndsWith("Id"))               
                     param.Add("@" + p.Name, p.GetValue(entity, null));
-                }
             }
 
             var columns = propertys.ToArray();
@@ -56,7 +50,6 @@ namespace LF.SysAdm.Data.Repositorys.Dapper
                 string.Join(",@", columns));
 
             DbContextDapper.Transaction.Connection.Execute(SqlCmd, param: param, transaction: DbContextDapper.Transaction);
-
         }
 
         public void Delete(T entity)
@@ -65,7 +58,6 @@ namespace LF.SysAdm.Data.Repositorys.Dapper
             var tableName = obj.Name;
 
             string SqlCmd = $"DELETE FROM [{tableName}] WHERE [ID] = '{entity.ID}'";
-
 
             DbContextDapper.Transaction.Connection.Execute(SqlCmd, transaction: DbContextDapper.Transaction);
 
@@ -82,7 +74,7 @@ namespace LF.SysAdm.Data.Repositorys.Dapper
 
             foreach (var p in props)
             {
-                if (p.PropertyType.Name != typeof(ICollection<>).Name && !p.Name.StartsWith("Rel_"))
+                if (p.PropertyType.Name != typeof(ICollection<>).Name && p.PropertyType.BaseType != typeof(BaseEntity))
                 {
                     propertys.Add("[" + p.Name + "]=@" + p.Name);
                     param.Add("@" + p.Name, p.GetValue(entity, null));

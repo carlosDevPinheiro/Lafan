@@ -56,9 +56,12 @@
     <Compile Include="Entity\Base\BaseEntity.cs" />
     <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\Customer.cs" />
+    <Compile Include="Entity\Employee.cs" />
     <Compile Include="Entity\Product.cs" />
+    <Compile Include="Entity\ServiceProvide.cs" />
     <Compile Include="Entity\Supply.cs" />
     <Compile Include="Entity\Users.cs" />
+    <Compile Include="Enum\EDepartment.cs" />
     <Compile Include="Enum\EProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Querys\Address\AddressQuery.cs" />

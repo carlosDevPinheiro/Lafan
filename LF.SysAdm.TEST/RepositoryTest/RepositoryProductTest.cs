@@ -1,5 +1,5 @@
 ﻿using LF.SysAdm.Data.Context;
-using LF.SysAdm.Data.Repositorys.Dapper;
+using LF.SysAdm.Data.Repositorys.Dapper; // NAO APAGAR
 using LF.SysAdm.Data.Repositorys.EF;
 using LF.SysAdm.Data.UOW;
 using LF.SysAdm.Domain.Entity;
@@ -23,19 +23,19 @@ namespace LF.SysAdm.TEST.RepositoryTest
         [TestInitialize]
         public void Initialize()
         {
-            //_context = new DbContextDapper();
-            //_repositoryProd = new RepositoryProductDapper(_context);
-            //_repositoryCateg = new RepositoryCategoryDapper(_context);
-            //_repositorySupp = new RepositorySupplyDapper(_context);
-            //_repositoryAddress = new RepositoryAddressDapper(_context);
-            //_uow = new UnityOfWorkDapper(_context);
+            _context = new DbContextDapper();
+            _repositoryProd = new RepositoryProductDapper(_context);
+            _repositoryCateg = new RepositoryCategoryDapper(_context);
+            _repositorySupp = new RepositorySupplyDapper(_context);
+            _repositoryAddress = new RepositoryAddressDapper(_context);
+            _uow = new UnityOfWorkDapper(_context);
 
-            _context = new DbContextEF();
-            _repositoryProd = new RepositoryProductEF(_context);
-            _repositoryCateg = new RepositoryCategoryEF(_context);
-            _repositorySupp = new RepositorySupplyEF(_context);
-            _repositoryAddress = new RepositoryAddressEF(_context);
-            _uow = new UnityOfWorkEF(_context);
+            //_context = new DbContextEF();
+            //_repositoryProd = new RepositoryProductEF(_context);
+            //_repositoryCateg = new RepositoryCategoryEF(_context);
+            //_repositorySupp = new RepositorySupplyEF(_context);
+            //_repositoryAddress = new RepositoryAddressEF(_context);
+            //_uow = new UnityOfWorkEF(_context);
         }
 
         [TestMethod]

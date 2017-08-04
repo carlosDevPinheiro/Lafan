@@ -46,6 +46,7 @@ namespace LF.SysAdm.Domain.Entity
 
         public Category Rel_Category { get; private set; }       
         public Supply Rel_Supply { get; private set; }
+       
 
 
 
