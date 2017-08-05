@@ -24,6 +24,8 @@ namespace LF.SysAdm.Data.Context
         public DbSet<Category> _dbSetCategory { get; set; }
         public DbSet<Supply> _dbSetSupply { get; set; }
         public DbSet<Product> _dbSetProduct { get; set; }
+        public DbSet<Employee> _dbSetEmployee { get; set; }
+        public DbSet<ServiceProvide> _dbSetServiceProvide { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -34,6 +36,8 @@ namespace LF.SysAdm.Data.Context
             modelBuilder.Configurations.Add(new CategoryMap());
             modelBuilder.Configurations.Add(new SupplyMap());
             modelBuilder.Configurations.Add(new ProductMap());
+            modelBuilder.Configurations.Add(new EmployeeMap());
+            modelBuilder.Configurations.Add(new ServiceProvideMap());
         }
 
 

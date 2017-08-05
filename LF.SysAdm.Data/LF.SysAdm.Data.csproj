@@ -57,8 +57,9 @@
     <Compile Include="Context\Map\AddressMap.cs" />
     <Compile Include="Context\Map\CategoryMap.cs" />
     <Compile Include="Context\Map\CustomerMap.cs" />
+    <Compile Include="Context\Map\EmployeeMap.cs" />
     <Compile Include="Context\Map\ProductMap.cs" />
-    <Compile Include="Context\Map\SeriviceProvideMap.cs" />
+    <Compile Include="Context\Map\ServiceProvideMap.cs" />
     <Compile Include="Context\Map\SupplyMap.cs" />
     <Compile Include="Context\Map\Template\LafanTemplateMap.cs" />
     <Compile Include="Context\Map\UserMap.cs" />
@@ -89,6 +90,10 @@
     <Compile Include="Migrations\201708041812546_alterCustomerAdress2.cs" />
     <Compile Include="Migrations\201708041812546_alterCustomerAdress2.Designer.cs">
       <DependentUpon>201708041812546_alterCustomerAdress2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708051317443_employeeService.cs" />
+    <Compile Include="Migrations\201708051317443_employeeService.Designer.cs">
+      <DependentUpon>201708051317443_employeeService.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708041812546_alterCustomerAdress2.resx">
       <DependentUpon>201708041812546_alterCustomerAdress2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708051317443_employeeService.resx">
+      <DependentUpon>201708051317443_employeeService.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -76,7 +76,7 @@ namespace LF.SysAdm.Domain.Entity
 
             var result = $"{numero.ToString() + Year.ToString() + Dia.ToString() + Hour.ToString() + Min.ToString()}";
 
-            return result;
+            return result.Substring(0,20);
         }
     }
 }
