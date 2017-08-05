@@ -33,6 +33,9 @@ namespace LF.SysAdm.Data.Context.Map
                 .HasMaxLength(20)
                 .IsRequired();
 
+            Property(X => X.Function)
+                .IsRequired();
+
             Ignore(x => x.AddressId);
         }
 

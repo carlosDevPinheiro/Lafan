@@ -12,8 +12,9 @@ namespace LF.SysAdm.Domain.Entity
     {
         protected ServiceProvide(){ }
 
-        public ServiceProvide(int tempo, decimal price, string description,Employee func)
+        public ServiceProvide(string name,int tempo, decimal price, string description,Employee func)
         {
+            ServiceName = name;
             Tempo = tempo;
             Price = price;
             DateRegister = DateTime.Now;
@@ -22,7 +23,8 @@ namespace LF.SysAdm.Domain.Entity
             Rel_Employee = func;
             Description = description;
         }
-        
+
+        public string ServiceName { get; private set; }
         public int Tempo { get; private set; }
         public decimal Price { get; private set; }
         public DateTime DateRegister { get; private set; }
@@ -31,15 +33,27 @@ namespace LF.SysAdm.Domain.Entity
         public string Description { get; private set; }
 
         public Guid EmployeeId { get; private set; } 
-        public Employee Rel_Employee { get; private set; }
-       
+        public Employee Rel_Employee { get; private set; }        
+
 
         public override void Register()
         {
             new ValidationContract<ServiceProvide>(this)
+                .HasMaxLenght(x => x.ServiceName,80,"Tamnho maximo para nome do servico é de 80 char")
+                .HasMinLenght(x => x.ServiceName,5,"Tamanho minimom para nome do servico é 5 char")
+                .IsRequired(x => x.ServiceName,"O Nome do Servico é obrigatorio")
                 .IsGreaterOrEqualsThan(x => x.Tempo, 5, "Tempo minimo para um Servico é de 5 min")
                 .IsGreaterOrEqualsThan(x => x.Price, 0.0m, "Valor não pode ser negativ ")
                 .HasMaxLenght(x => x.Description, 400, "Tamnho Maximo para campo descrção é de 400 char");
+        }
+
+        public void Edit(string name, int tempo, decimal price, string description,bool cancel)
+        {
+            ServiceName = name;
+            Tempo = tempo;
+            Price = price;
+            DateOfChanged = DateTime.Now;
+            Canceled = cancel;
         }
 
         public void CancelState(bool status)

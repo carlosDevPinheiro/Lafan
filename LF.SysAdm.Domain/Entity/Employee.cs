@@ -13,7 +13,7 @@ namespace LF.SysAdm.Domain.Entity
         public Employee(string name, EProfile function, EDepartment dep, string doc, DateTime birthDay, Address addr)
         {
             Name = Helpers.Capitalize(name);
-            Function = Function;
+            Function = function;
             Department = dep;
             Document = doc;
             DateBirthday = birthDay;
@@ -50,7 +50,7 @@ namespace LF.SysAdm.Domain.Entity
         public void Edit(string name, EProfile function, EDepartment dep, string doc, DateTime birthDay)
         {
             Name = Helpers.Capitalize(name);
-            Function = Function;
+            Function = function;
             Department = dep;
             Document = doc;
             DateBirthday = birthDay;
@@ -68,15 +68,8 @@ namespace LF.SysAdm.Domain.Entity
         private string GeneratorRE()
         {
             Random rdm = new Random();
-            var numero = rdm.Next(0, 99);
-            var Year = DateTime.Now.Year;
-            var Dia = DateTime.Now.Day;
-            var Hour = DateTime.Now.Hour;
-            var Min = DateTime.Now.Minute;
-
-            var result = $"{numero.ToString() + Year.ToString() + Dia.ToString() + Hour.ToString() + Min.ToString()}";
-
-            return result.Substring(0,20);
+            var result = Guid.NewGuid().ToString().Substring(0, 8) + rdm.Next(0, 99).ToString().ToUpper();
+            return result;
         }
     }
 }

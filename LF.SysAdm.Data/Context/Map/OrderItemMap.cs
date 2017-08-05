@@ -8,36 +8,29 @@ using System.Threading.Tasks;
 
 namespace LF.SysAdm.Data.Context.Map
 {
-    public class ServiceProvideMap : LafanTemplateMap<ServiceProvide>
+    public class OrderItemMap : LafanTemplateMap<OrderItem>
     {
         protected override void ConfigBody()
         {
-            Property(x => x.ServiceName)
-               .HasMaxLength(80)
-               .IsRequired();
-           
-            Property(x => x.DateOfChanged)
-                .IsOptional();
-
-            Property(x => x.Tempo)
+            Property(x => x.ItemName)
+                .HasMaxLength(100)
                 .IsRequired();
 
             Property(x => x.Price)
                 .IsRequired();
 
-            Property(x => x.Description)
-                .HasMaxLength(400)
-                .IsOptional();
-
-            Property(x => x.DateRegister)
+            Property(x => x.ProdId)
                 .IsRequired();
 
-            Ignore(x => x.EmployeeId);
+            Property(x => x.Quantity)
+                .IsRequired();
+
+            Ignore(x => x.ProdId);
         }
 
         protected override void ConfigNameTable()
         {
-            ToTable("ServiceProvide");
+            ToTable("OrderItem");
         }
 
         protected override void ConfigPrimaryKey()
@@ -47,9 +40,9 @@ namespace LF.SysAdm.Data.Context.Map
 
         protected override void ConfigRelationship()
         {
-            HasRequired(x => x.Rel_Employee)
-                .WithOptional()
-                .Map(x => x.MapKey("EmployeeId"));
+            HasRequired(x => x.Rel_Order)
+                .WithMany(x => x.ListItens)
+                .HasForeignKey(x => x.OrderId);
         }
     }
 }

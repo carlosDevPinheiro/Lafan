@@ -58,6 +58,8 @@
     <Compile Include="Context\Map\CategoryMap.cs" />
     <Compile Include="Context\Map\CustomerMap.cs" />
     <Compile Include="Context\Map\EmployeeMap.cs" />
+    <Compile Include="Context\Map\OrderItemMap.cs" />
+    <Compile Include="Context\Map\OrderMap.cs" />
     <Compile Include="Context\Map\ProductMap.cs" />
     <Compile Include="Context\Map\ServiceProvideMap.cs" />
     <Compile Include="Context\Map\SupplyMap.cs" />
@@ -95,12 +97,17 @@
     <Compile Include="Migrations\201708051317443_employeeService.Designer.cs">
       <DependentUpon>201708051317443_employeeService.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708051405081_EmployeeProfile.cs" />
+    <Compile Include="Migrations\201708051405081_EmployeeProfile.Designer.cs">
+      <DependentUpon>201708051405081_EmployeeProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorys\Dapper\CRUDDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositoryAddressDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositoryCategoryDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositoryCustomerDapper.cs" />
+    <Compile Include="Repositorys\Dapper\RepositoryEmployeeDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositoryProductDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositorySupplyDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositoryUserDapper.cs" />
@@ -153,9 +160,13 @@
     <EmbeddedResource Include="Migrations\201708051317443_employeeService.resx">
       <DependentUpon>201708051317443_employeeService.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708051405081_EmployeeProfile.resx">
+      <DependentUpon>201708051405081_EmployeeProfile.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="T-SQL\LF_EmployeeWithAddress.sql" />
     <Content Include="T-SQL\LF_GetProduct.sql" />
     <Content Include="T-SQL\LF_SupplyWithAddress.sql" />
   </ItemGroup>
