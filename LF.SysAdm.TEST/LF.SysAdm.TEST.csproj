@@ -59,6 +59,7 @@
     <Compile Include="EntityTest\CustomerTest.cs" />
     <Compile Include="RepositoryTest\RepositoryProductTest.cs" />
     <Compile Include="RepositoryTest\RepositoryEmployeeTest.cs" />
+    <Compile Include="RepositoryTest\RepositoryOrderTest.cs" />
     <Compile Include="ServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -101,6 +101,18 @@
     <Compile Include="Migrations\201708051405081_EmployeeProfile.Designer.cs">
       <DependentUpon>201708051405081_EmployeeProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708051716067_OrderEOrderItem.cs" />
+    <Compile Include="Migrations\201708051716067_OrderEOrderItem.Designer.cs">
+      <DependentUpon>201708051716067_OrderEOrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708052022358_AlterarNameTabelaOrder.cs" />
+    <Compile Include="Migrations\201708052022358_AlterarNameTabelaOrder.Designer.cs">
+      <DependentUpon>201708052022358_AlterarNameTabelaOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708052050388_VoltarNameTabelaOrder.cs" />
+    <Compile Include="Migrations\201708052050388_VoltarNameTabelaOrder.Designer.cs">
+      <DependentUpon>201708052050388_VoltarNameTabelaOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorys\Dapper\CRUDDapper.cs" />
@@ -108,6 +120,7 @@
     <Compile Include="Repositorys\Dapper\RepositoryCategoryDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositoryCustomerDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositoryEmployeeDapper.cs" />
+    <Compile Include="Repositorys\Dapper\RepositoryOrderDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositoryProductDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositorySupplyDapper.cs" />
     <Compile Include="Repositorys\Dapper\RepositoryUserDapper.cs" />
@@ -163,11 +176,23 @@
     <EmbeddedResource Include="Migrations\201708051405081_EmployeeProfile.resx">
       <DependentUpon>201708051405081_EmployeeProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708051716067_OrderEOrderItem.resx">
+      <DependentUpon>201708051716067_OrderEOrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708052022358_AlterarNameTabelaOrder.resx">
+      <DependentUpon>201708052022358_AlterarNameTabelaOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708052050388_VoltarNameTabelaOrder.resx">
+      <DependentUpon>201708052050388_VoltarNameTabelaOrder.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Content Include="T-SQL\LF_EmployeeWithAddress.sql" />
+    <Content Include="T-SQL\LF_GetOrders.sql" />
+    <Content Include="T-SQL\LF_GetOrdersDate.sql" />
     <Content Include="T-SQL\LF_GetProduct.sql" />
+    <Content Include="T-SQL\LF_OrderInvoice.sql" />
     <Content Include="T-SQL\LF_SupplyWithAddress.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

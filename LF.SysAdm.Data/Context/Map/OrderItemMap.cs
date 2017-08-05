@@ -25,7 +25,7 @@ namespace LF.SysAdm.Data.Context.Map
             Property(x => x.Quantity)
                 .IsRequired();
 
-            Ignore(x => x.ProdId);
+            Ignore(x => x.OrderId);
         }
 
         protected override void ConfigNameTable()
@@ -42,7 +42,7 @@ namespace LF.SysAdm.Data.Context.Map
         {
             HasRequired(x => x.Rel_Order)
                 .WithMany(x => x.ListItens)
-                .HasForeignKey(x => x.OrderId);
+                .Map(x => x.MapKey("OrderId"));
         }
     }
 }

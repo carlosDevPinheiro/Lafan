@@ -22,7 +22,7 @@ namespace LF.SysAdm.Domain.Entity
             ListItens = new List<OrderItem>();            
         }
 
-       
+        
         public DateTime OrderDate { get; private set; }
         public DateTime ChangeDate { get; private set; }
         public EOrderStatus Status { get; private set; }

@@ -1,10 +1,5 @@
 ﻿using LF.SysAdm.Data.Context.Map.Template;
 using LF.SysAdm.Domain.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LF.SysAdm.Data.Context.Map
 {
@@ -37,13 +32,6 @@ namespace LF.SysAdm.Data.Context.Map
 
             Ignore(x => x.CustomerId);
             Ignore(x => x.EmployeeId);
-            
-            //public ICollection<OrderItem> ListItens { get; private set; }
-            //public Guid CustomerId { get; private set; }
-            //public Guid EmployeeId { get; private set; }
-
-            //public Employee Rel_Employee { get; private set; }
-            //public Customer Rel_Customer { get; private set; }
         }
 
         protected override void ConfigNameTable()

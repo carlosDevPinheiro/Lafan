@@ -77,6 +77,8 @@
     <Compile Include="Querys\Employee\EmployeeQuery.cs" />
     <Compile Include="Querys\Employee\EmployeeWithAddressQuery.cs" />
     <Compile Include="Querys\ObjectRequest.cs" />
+    <Compile Include="Querys\Order\OrderInvoiceQuery.cs" />
+    <Compile Include="Querys\Order\OrderQuery.cs" />
     <Compile Include="Querys\Product\ProductFromWebQuery.cs" />
     <Compile Include="Querys\Product\ProductQuery.cs" />
     <Compile Include="Querys\Supply\SupplyQuery.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Repositorys\IRepositoryCategory.cs" />
     <Compile Include="Repositorys\IRepositoryCustomer.cs" />
     <Compile Include="Repositorys\IRepositoryEmployee.cs" />
+    <Compile Include="Repositorys\IRepositoryOrder.cs" />
     <Compile Include="Repositorys\IRepositoryProduct.cs" />
     <Compile Include="Repositorys\IRepositorySupply.cs" />
     <Compile Include="Repositorys\IRepositoryUser.cs" />
